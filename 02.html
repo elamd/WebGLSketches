@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Setting Up a Canvas</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css">
+		<script src="src/utils.js"></script>
+		<script src="src/init.js"></script>
+		<script src="src/02/02.js"></script>
+		
+		<!-- Fragment Shader -->
+		<script id="shader-fs" type="x-shader/x-fragment">		
+			#ifdef GL_ES
+				precision highp float;
+			#endif
+			void main(void) {
+				gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+			}
+		</script>
+
+		<!-- Vertex Shader -->
+		<script id="shader-vs" type="x-shader/x-vertex">
+			attribute vec3 aVertexPosition;
+			void main(void) {
+				gl_Position = vec4(aVertexPosition, 1.0);
+				gl_PointSize = 4.0;
+			}
+		</script>
+		
+	</head>
+
+	<body>
+		<canvas id="canvas-element-id"
+			width="800" height="600">
+			Your browser does not support HTML5
+		</canvas>
+	</body>
+	<script>
+		runWebGLApp();
+	</script>
+</html>
